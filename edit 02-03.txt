@@ -1,0 +1,36 @@
+<div class="row mt-3">
+                    <?php
+                    include('connect/dbconnect.php');
+                    $q = "SELECT * FROM ex1_data02_type";
+                    $result = mysqli_query($dbcon, $q);
+                    ?>
+                    <div class="col input-group-sm">
+                        <label for="">วิธีการขาย</label>
+                        <select class="form-select" name="data02_id" aria-label="Default select example" required>
+                            <option selected>--เลือกวิธีการขาย--</option>
+                            <?php
+                            foreach($result as $row) { ?>
+                            <option value="<?php echo $row["data02_id"]; ?>">
+                                <?php echo $row["data02_name"]; ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <?php
+                    include('connect/dbconnect.php');
+                    $q = "SELECT * FROM ex1_data03_type";
+                    $result = mysqli_query($dbcon, $q);
+                    ?>
+                    <div class="col input-group-sm">
+                        <label for="">สำนักงานบังคับคดี</label>
+                        <select class="form-select" name="data03_id" aria-label="Default select example" required>
+                            <option selected>--เลือกสำนักงานบังคับคดี--</option>
+                            <?php
+                            foreach($result as $row) { ?>
+                            <option value="<?php echo $row["data03_id"]; ?>">
+                                <?php echo $row["data03_name"]; ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                    </div>

@@ -1,0 +1,39 @@
+<!-- วิธีการขาย -->
+                        <div class="row mt-3">
+                            <?php
+                            include('connect/dbconnect.php');
+                            $q = "SELECT * FROM sales_type";
+                            $result = mysqli_query($dbcon, $q);
+                            ?>
+                            <div class="col input-group-sm">
+                                <label for="">วิธีการขาย</label>
+                                <select class="form-select" name="sales_type_id" id="sales_type_id" aria-label="Default select example">
+                                    <option selected>--เลือกวิธีการขาย--</option>
+                                    <?php
+                                    foreach ($result as $row) { ?>
+                                        <option value="<?php echo $row["sales_type_id"]; ?>">
+                                            <?php echo $row["sales_type_name"]; ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                                <label id="lblSales_type_name" style="color:red;"></label>
+                            </div>
+                            <!-- สำนักงานบังคับคดี  -->
+                            <?php
+                            include('connect/dbconnect.php');
+                            $q = "SELECT * FROM legal_type";
+                            $result = mysqli_query($dbcon, $q);
+                            ?>
+                            <div class="col input-group-sm">
+                                <label for="">สำนักงานบังคับคดี</label>
+                                <select class="form-select" name="legal_type_id" id="legal_type_id" aria-label="Default select example">
+                                    <option selected>--เลือกสำนักงานบังคับคดี--</option>
+                                    <?php
+                                    foreach ($result as $row) { ?>
+                                        <option value="<?php echo $row["legal_type_id"]; ?>">
+                                            <?php echo $row["legal_type_name"]; ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                                <label id="lblLegal_type_name" style="color:red;"></label>
+                            </div>
